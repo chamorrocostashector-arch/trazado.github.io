@@ -4,23 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TRAZADO Studio | Merchandising, Rotulación e Impresión Textil</title>
-    <!-- Importamos una fuente moderna y geométrica -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <!-- Iconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- VARIABLES DE COLOR --- */
         :root {
-            --bg-black: #0a0a0a;      /* Negro muy oscuro casi puro */
-            --bg-card: #161616;       /* Negro ligeramente más claro para tarjetas */
-            --text-white: #f5f5f5;    /* Blanco roto para no cansar la vista */
-            --neon-orange: #ff8c42;   /* Naranja neón suave */
-            --neon-orange-dim: rgba(255, 140, 66, 0.2); /* Naranja transparente */
+            --bg-black: #0a0a0a;
+            --bg-card: #161616;
+            --text-white: #f5f5f5;
+            --neon-orange: #ff8c42;
+            --neon-orange-dim: rgba(255, 140, 66, 0.2);
             --grey-text: #a0a0a0;
         }
 
-        /* --- ESTILOS GENERALES --- */
         * {
             margin: 0;
             padding: 0;
@@ -41,7 +37,6 @@
             transition: 0.3s;
         }
 
-        /* --- CABECERA / NAVEGACIÓN --- */
         header {
             position: fixed;
             top: 0;
@@ -91,7 +86,6 @@
             text-shadow: 0 0 8px var(--neon-orange-dim);
         }
 
-        /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -105,7 +99,6 @@
             overflow: hidden;
         }
 
-        /* Efecto sutil de fondo */
         .hero::before {
             content: '';
             position: absolute;
@@ -129,7 +122,6 @@
 
         .hero h1 span {
             color: var(--neon-orange);
-            /* Efecto neón suave */
             text-shadow: 0 0 10px rgba(255, 140, 66, 0.4), 0 0 20px rgba(255, 140, 66, 0.2);
         }
 
@@ -162,7 +154,6 @@
             box-shadow: 0 0 20px var(--neon-orange-dim);
         }
 
-        /* --- SECCIONES GENERALES --- */
         section {
             padding: 6rem 2rem;
             max-width: 1200px;
@@ -178,7 +169,6 @@
             padding-left: 1rem;
         }
 
-        /* --- SERVICIOS --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -214,7 +204,6 @@
             font-size: 0.95rem;
         }
 
-        /* --- PROYECTOS (GALERÍA) --- */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -264,7 +253,6 @@
             font-weight: 700;
         }
 
-        /* --- PRESUPUESTO / CONTACTO --- */
         .contact-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -306,7 +294,6 @@
             color: var(--neon-orange);
         }
 
-        /* Formulario */
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -352,7 +339,6 @@
             box-shadow: 0 0 15px var(--neon-orange-dim);
         }
 
-        /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 3rem 2rem;
@@ -369,7 +355,6 @@
             display: block;
         }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -401,7 +386,6 @@
 </head>
 <body>
 
-    <!-- CABECERA -->
     <header>
         <div class="nav-container">
             <div class="logo">trazado<span>.</span></div>
@@ -416,14 +400,12 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
         <h1>Impresión Textil & <br><span>Merchandising</span></h1>
         <p>Diseño Gráfico · Rotulación · Creación de Contenido. Llevamos tu marca al siguiente nivel en Nigrán, Vigo.</p>
         <a href="#presupuesto" class="btn-neon">Solicitar Presupuesto</a>
     </section>
 
-    <!-- SERVICIOS -->
     <section id="servicios">
         <h2 class="section-title">Nuestros Servicios</h2>
         <div class="services-grid">
@@ -450,7 +432,6 @@
         </div>
     </section>
 
-    <!-- PROYECTOS -->
     <section id="proyectos">
         <h2 class="section-title">Proyectos Recientes</h2>
         <div class="projects-grid">
@@ -489,10 +470,8 @@
         </div>
     </section>
 
-    <!-- PRESUPUESTO Y CONTACTO -->
     <section id="presupuesto">
         <div class="contact-section">
-            <!-- Información de Contacto -->
             <div class="contact-info" id="contacto">
                 <h3>Hablemos de tu proyecto</h3>
                 <p>¿Necesitas presupuesto para tu empresa, evento o proyecto personal? Rellena el formulario o contacta directamente con nosotros.</p>
@@ -517,7 +496,6 @@
                 </ul>
             </div>
 
-            <!-- Formulario de Presupuesto -->
             <form class="contact-form" action="#" method="POST">
                 <div class="form-group">
                     <input type="text" placeholder="Nombre y Apellidos" required>
@@ -546,7 +524,7 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FINAL -->
     <footer>
         <span class="footer-logo">trazado<span style="color: var(--neon-orange);">.</span></span>
         <p>&copy; 2026 Trazado Studio. Todos los derechos reservados.</p>
