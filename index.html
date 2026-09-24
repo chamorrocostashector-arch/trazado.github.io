@@ -499,10 +499,10 @@
 
             <form class="contact-form" action="https://formspree.io/f/mrpbllqg" method="POST">
                 <div class="form-group">
-                    <input type="text" placeholder="Nombre y Apellidos" required>
+                    <input type="text" name="nombre" placeholder="Nombre y Apellidos" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Correo Electrónico" required>
+                    <input type="email" name="email" placeholder="Correo Electrónico" required>
                 </div>
                 <div class="form-group">
                     <input type="tel" placeholder="Teléfono de contacto">
@@ -518,7 +518,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <textarea rows="4" placeholder="Cuéntanos qué necesitas..." required></textarea>
+                    <textarea name="mensaje" rows="4" placeholder="Cuéntanos qué necesitas..." required></textarea>
                 </div>
                 <button type="submit">Enviar Solicitud</button>
             </form>
