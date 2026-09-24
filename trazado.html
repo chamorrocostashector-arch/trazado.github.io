@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAZADO Studio | Merchandising, Rotulación e Impresión Textil</title>
+    <!-- Importamos una fuente moderna y geométrica -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIABLES DE COLOR --- */
+        :root {
+            --bg-black: #0a0a0a;      /* Negro muy oscuro casi puro */
+            --bg-card: #161616;       /* Negro ligeramente más claro para tarjetas */
+            --text-white: #f5f5f5;    /* Blanco roto para no cansar la vista */
+            --neon-orange: #ff8c42;   /* Naranja neón suave */
+            --neon-orange-dim: rgba(255, 140, 66, 0.2); /* Naranja transparente */
+            --grey-text: #a0a0a0;
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        /* --- CABECERA / NAVEGACIÓN --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            text-transform: lowercase;
+        }
+
+        .logo span {
+            color: var(--neon-orange);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-white);
+        }
+
+        nav ul li a:hover {
+            color: var(--neon-orange);
+            text-shadow: 0 0 8px var(--neon-orange-dim);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            background: radial-gradient(circle at center, #1a1a1a 0%, var(--bg-black) 70%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efecto sutil de fondo */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); /* Textura de fibra de carbono sutil */
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 1rem;
+            z-index: 1;
+        }
+
+        .hero h1 span {
+            color: var(--neon-orange);
+            /* Efecto neón suave */
+            text-shadow: 0 0 10px rgba(255, 140, 66, 0.4), 0 0 20px rgba(255, 140, 66, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--grey-text);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            z-index: 1;
+        }
+
+        .btn-neon {
+            background-color: transparent;
+            color: var(--neon-orange);
+            border: 2px solid var(--neon-orange);
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1;
+            border-radius: 4px;
+        }
+
+        .btn-neon:hover {
+            background-color: var(--neon-orange);
+            color: var(--bg-black);
+            box-shadow: 0 0 20px var(--neon-orange-dim);
+        }
+
+        /* --- SECCIONES GENERALES --- */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            border-left: 5px solid var(--neon-orange);
+            padding-left: 1rem;
+        }
+
+        /* --- SERVICIOS --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-orange);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--neon-orange);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--grey-text);
+            font-size: 0.95rem;
+        }
+
+        /* --- PROYECTOS (GALERÍA) --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            background-color: #222;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            opacity: 0.7;
+        }
+
+        .project-item:hover img {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            pointer-events: none;
+        }
+
+        .project-overlay h4 {
+            font-size: 1.2rem;
+            color: var(--text-white);
+        }
+
+        .project-overlay span {
+            font-size: 0.8rem;
+            color: var(--neon-orange);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* --- PRESUPUESTO / CONTACTO --- */
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            background-color: var(--bg-card);
+            padding: 4rem;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--grey-text);
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details li i {
+            color: var(--neon-orange);
+            font-size: 1.3rem;
+        }
+
+        .contact-details li a:hover {
+            color: var(--neon-orange);
+        }
+
+        /* Formulario */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--bg-black);
+            border: 1px solid #333;
+            color: var(--text-white);
+            border-radius: 4px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--neon-orange);
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--neon-orange);
+            color: var(--bg-black);
+            border: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #e67e33;
+            box-shadow: 0 0 15px var(--neon-orange-dim);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid #222;
+            color: var(--grey-text);
+            font-size: 0.9rem;
+        }
+
+        footer .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text-white);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+                gap: 2rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">trazado<span>.</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#presupuesto">Presupuesto</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Impresión Textil & <br><span>Merchandising</span></h1>
+        <p>Diseño Gráfico · Rotulación · Creación de Contenido. Llevamos tu marca al siguiente nivel en Nigrán, Vigo.</p>
+        <a href="#presupuesto" class="btn-neon">Solicitar Presupuesto</a>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-tshirt"></i>
+                <h3>Impresión Textil</h3>
+                <p>Personalización de ropa y merchandising. Desde camisetas y sudaderas hasta ropa laboral. Técnicas de serigrafía, vinilo textil y DTF de alta calidad.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-car-side"></i>
+                <h3>Rotulación de Vehículos</h3>
+                <p>Vinilos de corte y impresión para coches, furgonetas y motos. Diseños personalizados que protegen la pintura y dan una imagen profesional a tu flota.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-pen-nib"></i>
+                <h3>Diseño Gráfico</h3>
+                <p>Creación de logotipos, identidad corporativa y artes finales. Nos adaptamos a la estética de tu marca para ofrecer un resultado único y llamativo.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-cube"></i>
+                <h3>Merchandising y Objetos</h3>
+                <p>Rotulación de objetos, tazas, pegatinas, cartelería y todo tipo de artículos promocionales para empresas, eventos y particulares.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos">
+        <h2 class="section-title">Proyectos Recientes</h2>
+        <div class="projects-grid">
+            <!-- Proyecto 1: Ropa -->
+            <div class="project-item">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop" alt="Impresión Textil">
+                <div class="project-overlay">
+                    <span>Textil</span>
+                    <h4>Colección Streetwear</h4>
+                </div>
+            </div>
+            <!-- Proyecto 2: Vehículo (Furgoneta) -->
+            <div class="project-item">
+                <img src="https://images.unsplash.com/photo-1566207474742-de92162ae633?q=80&w=1000&auto=format&fit=crop" alt="Rotulación Vehículos">
+                <div class="project-overlay">
+                    <span>Rotulación</span>
+                    <h4>Flota Comercial</h4>
+                </div>
+            </div>
+            <!-- Proyecto 3: Detalle textil / Logo -->
+            <div class="project-item">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1000&auto=format&fit=crop" alt="Merchandising">
+                <div class="project-overlay">
+                    <span>Merch</span>
+                    <h4>Camisetas Personalizadas</h4>
+                </div>
+            </div>
+            <!-- Proyecto 4: Objetos / Rotulación -->
+            <div class="project-item">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" alt="Rotulación Objetos">
+                <div class="project-overlay">
+                    <span>Diseño</span>
+                    <h4>Vinilos Decorativos</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRESUPUESTO Y CONTACTO -->
+    <section id="presupuesto">
+        <div class="contact-section">
+            <!-- Información de Contacto -->
+            <div class="contact-info" id="contacto">
+                <h3>Hablemos de tu proyecto</h3>
+                <p>¿Necesitas presupuesto para tu empresa, evento o proyecto personal? Rellena el formulario o contacta directamente con nosotros.</p>
+                
+                <ul class="contact-details">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Av. Val Miñor, 2, BAJO<br>36350 Nigrán, Pontevedra</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+34673011915">(+34) 673 011 915</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:contacto@trazadostudio.com">contacto@trazadostudio.com</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Lunes a Viernes: 9:00 - 18:00</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Formulario de Presupuesto -->
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <input type="text" placeholder="Nombre y Apellidos" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Correo Electrónico" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Teléfono de contacto">
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="" disabled selected>Tipo de servicio</option>
+                        <option value="textil">Impresión Textil / Ropa</option>
+                        <option value="vehiculos">Rotulación de Vehículos</option>
+                        <option value="objetos">Merchandising / Objetos</option>
+                        <option value="diseno">Diseño Gráfico</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="Cuéntanos qué necesitas..." required></textarea>
+                </div>
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span class="footer-logo">trazado<span style="color: var(--neon-orange);">.</span></span>
+        <p>&copy; 2023 Trazado Studio. Todos los derechos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Diseño Gráfico · Impresión · Rotulación · Creación de Contenido</p>
+    </footer>
+
+</body>
+</html>
